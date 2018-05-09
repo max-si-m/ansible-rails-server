@@ -1,0 +1,31 @@
+---
+- hosts: all
+  become: yes
+  become_method: sudo
+  roles:
+    - role: manala.zsh
+    - role: server_configuration
+
+  tasks:
+    - name: Install zsh for deploy user
+      remote_user: "{{ deploy_user_name }}"
+      import_role:
+          name: gantsign.oh-my-zsh
+      vars:
+        users:
+          - username: "{{ deploy_user_name }}"
+    - name: Install nodejs for deploy user
+      remote_user: "{{ deploy_user_name }}"
+      import_role:
+          name: geerlingguy.nodejs
+      vars:
+        users:
+          - username: "{{ deploy_user_name }}"
+
+    - name: Install required software
+      remote_user: "{{ deploy_user_name }}"
+      apt: name={{ item }}
+      with_items:
+        - curl
+        - libpq-dev
+        - htop

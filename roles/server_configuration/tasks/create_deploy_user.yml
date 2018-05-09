@@ -1,0 +1,19 @@
+---
+# Create user deploy, make him passwordless sudoer and copy ssh key.
+
+- name: Create user
+  user: name={{deploy_user_name}}
+        state=present
+        groups="sudo"
+        password={{ deploy_user_password }}
+        shell=/bin/zsh
+
+- name: Give user sudo permission
+  lineinfile: dest=/etc/sudoers
+              state=present
+              regexp='^{{deploy_user_name}} ALL\='
+              line='{{deploy_user_name}} ALL=(ALL) NOPASSWD:ALL'
+              validate='visudo -cf %s'
+
+- name: Setup authorized key for user
+  authorized_key: user=deploy key="{{ lookup('file', deploy_user_authorized_key_path) }}"

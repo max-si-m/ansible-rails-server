@@ -1,0 +1,5 @@
+---
+# All roles are installed from Ansible Galaxy
+- src: manala.zsh
+- src: gantsign.oh-my-zsh
+- src: geerlingguy.nodejs
