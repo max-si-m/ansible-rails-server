@@ -14,6 +14,7 @@
       vars:
         users:
           - username: "{{ deploy_user_name }}"
+
     - name: Install nodejs for deploy user
       remote_user: "{{ deploy_user_name }}"
       import_role:
@@ -29,3 +30,11 @@
         - curl
         - libpq-dev
         - htop
+
+    - name: Install redis
+      remote_user: "{{ deploy_user_name }}"
+      import_role:
+          name: DavidWittman.redis
+      vars:
+        - redis_bind: 127.0.0.1
+      when: (redis_enabled is defined) and redis_enabled
