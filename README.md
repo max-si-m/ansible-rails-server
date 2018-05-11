@@ -1,1 +1,1 @@
-Ansible for rails server configuration
+Ansible role for rails server configuration
