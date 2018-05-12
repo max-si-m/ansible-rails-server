@@ -50,3 +50,4 @@
           postgresql_admin_user: 'postgres'
           postgresql_default_auth_method: 'trust'
           postgresql_service_enabled: true
+      when: (postgresql_enabled is defined) and postgresql_enabled
