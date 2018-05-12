@@ -4,3 +4,4 @@
 - src: gantsign.oh-my-zsh
 - src: geerlingguy.nodejs
 - src: DavidWittman.redis
+- src: ANXS.postgresql

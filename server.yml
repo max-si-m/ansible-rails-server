@@ -38,3 +38,15 @@
       vars:
         - redis_bind: 127.0.0.1
       when: (redis_enabled is defined) and redis_enabled
+
+    - name: Install PostgreSQL
+      remote_user: "{{ deploy_user_name }}"
+      import_role:
+          name: ANXS.postgresql
+      vars:
+          postgresql_version: 9.6
+          postgresql_encoding: 'UTF-8'
+          postgresql_locale: 'en_US.UTF-8'
+          postgresql_admin_user: 'postgres'
+          postgresql_default_auth_method: 'trust'
+          postgresql_service_enabled: true
