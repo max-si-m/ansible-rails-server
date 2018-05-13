@@ -5,3 +5,4 @@
 - src: geerlingguy.nodejs
 - src: DavidWittman.redis
 - src: ANXS.postgresql
+- src: greendayonfire.mongodb
