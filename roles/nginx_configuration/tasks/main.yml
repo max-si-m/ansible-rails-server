@@ -1,0 +1,16 @@
+---
+- name: NGINX | Install
+  remote_user: "{{ deploy_user_name }}"
+  import_role:
+      name: geerlingguy.nginx
+
+- name: NGINX | Create directories
+  file:
+    path: "/home/{{ deploy_user_name }}/www/"
+    state: directory
+    owner: "{{ deploy_user_name }}"
+    mode: 0755
+  notify: restart nginx
+
+- name: NGINX | Remove default host
+  file: path=/etc/nginx/sites-enabled/default state=absent

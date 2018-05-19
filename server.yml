@@ -60,3 +60,7 @@
           mongodb_version: "3.4"
           mongodb_manage_service: true
       when: "(database is defined) and database == 'mongodb'"
+
+    - name: NGINX | Configutation
+      import_role:
+          name: nginx_configuration

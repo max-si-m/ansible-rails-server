@@ -6,3 +6,4 @@
 - src: DavidWittman.redis
 - src: ANXS.postgresql
 - src: greendayonfire.mongodb
+- src: geerlingguy.nginx
