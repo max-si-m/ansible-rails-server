@@ -7,3 +7,4 @@
 - src: ANXS.postgresql
 - src: greendayonfire.mongodb
 - src: geerlingguy.nginx
+- src: rvm_io.ruby

@@ -64,3 +64,8 @@
     - name: NGINX | Configutation
       import_role:
           name: nginx_configuration
+
+    - name: Ruby | Configutation
+      tags: ruby
+      import_role:
+          name: ruby_configuration
