@@ -5,3 +5,4 @@ Ansible role for rails server configuration
 - Redis
 - DB (PostgreSQL/MongoDB)
 - Nginx
+- Ruby
